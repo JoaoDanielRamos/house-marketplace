@@ -18,8 +18,8 @@ export default function App() {
           <Route path='/' element={<Explore />} />
           <Route path='/offers' element={<Offers />} />
           <Route path='/profile' element={<Profile />} />
-          <Route path='/sing-in' element={<SingIn />} />
-          <Route path='/sing-up' element={<SingUp />} />
+          <Route path='/sign-in' element={<SingIn />} />
+          <Route path='/sign-up' element={<SingUp />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
         </Routes>
         <Navbar />
