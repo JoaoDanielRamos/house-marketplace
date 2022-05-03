@@ -2,10 +2,12 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { Toast } from 'react-toastify/dist/components';
 
 // * Assets
 import ArrowRightAIcon from '../assets/svg/keyboardArrowRightIcon.svg?component';
 import visibilityIcon from '../assets/svg/visibilityIcon.svg';
+import { toast } from 'react-toastify';
 
 export default function SingIn() {
   const [showPassword, setShowPassword] = useState(false);
@@ -40,7 +42,7 @@ export default function SingIn() {
 
       if (userCredential.user) navigate('/');
     } catch (error) {
-      alert(error);
+      toast.error('Bad User Credentials');
     }
   };
 

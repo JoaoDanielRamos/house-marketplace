@@ -8,6 +8,7 @@ import {
 } from 'firebase/auth';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase.config.js';
+import { toast } from 'react-toastify';
 console.log(db);
 
 // * Assets
@@ -73,7 +74,7 @@ export default function SingUp() {
 
       navigate('/');
     } catch (error: any) {
-      alert(error);
+      toast.error('Something went wrong.');
     }
   };
 
