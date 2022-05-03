@@ -1,5 +1,6 @@
 // * Modules
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
 
 // * Pages
 import Explore from './pages/Explore';
@@ -11,7 +12,7 @@ import SingUp from './pages/SingUp';
 
 export default function App() {
   return (
-    <div className='App'>
+    <>
       <Router>
         <Routes>
           <Route path='/' element={<Explore />} />
@@ -21,7 +22,8 @@ export default function App() {
           <Route path='/sing-up' element={<SingUp />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
         </Routes>
+        <Navbar />
       </Router>
-    </div>
+    </>
   );
 }
