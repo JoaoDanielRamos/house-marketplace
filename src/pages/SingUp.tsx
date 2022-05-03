@@ -6,7 +6,7 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
 } from 'firebase/auth';
-
+import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase.config.js';
 console.log(db);
 
@@ -22,7 +22,17 @@ export default function SingUp() {
     password: '',
   });
 
-  const { name, email, password } = formData;
+  const {
+    name,
+    email,
+    password,
+  }: {
+    name: string;
+    email: string;
+    password: string;
+    timestamp?: any;
+    delete?: number;
+  } = formData;
 
   const navigate = useNavigate();
 
@@ -48,6 +58,18 @@ export default function SingUp() {
       const user = userCredential.user;
 
       updateProfile(auth.currentUser, { displayName: name });
+
+      const formDataCopy: {
+        name: string;
+        email: string;
+        password: string | undefined;
+        timestamp?: any;
+        delete?: any;
+      } = { ...formData };
+      delete formDataCopy.password;
+      formDataCopy.timestamp = serverTimestamp();
+
+      await setDoc(doc(db, 'users', user.uid), formDataCopy);
 
       navigate('/');
     } catch (error: any) {

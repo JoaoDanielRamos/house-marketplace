@@ -1,6 +1,7 @@
 // * Modules
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 // * Assets
 import ArrowRightAIcon from '../assets/svg/keyboardArrowRightIcon.svg?component';
@@ -25,6 +26,24 @@ export default function SingIn() {
     }));
   };
 
+  const onSubmit = async (event: any) => {
+    event.preventDefault();
+
+    try {
+      const auth = getAuth();
+
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      if (userCredential.user) navigate('/');
+    } catch (error) {
+      alert(error);
+    }
+  };
+
   return (
     <>
       <div className='pageContainer'>
@@ -32,7 +51,7 @@ export default function SingIn() {
           <p className='pageHeader'>Welcome Back!</p>
         </header>
 
-        <form>
+        <form onSubmit={onSubmit}>
           <input
             type='email'
             name='email'
