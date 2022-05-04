@@ -15,6 +15,9 @@ import { toast } from 'react-toastify';
 // * Assets
 import Spinner from '../components/Spinner';
 
+// * Component
+import ListItem from '../components/ListItem';
+
 export default function Category() {
   const [listings, setListing] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -74,7 +77,11 @@ export default function Category() {
             <ul className='categoryListings'>
               {listings.map(
                 (listing: { id: string | number; data: { name: string } }) => (
-                  <h3 key={listing.id}>{listing.data.name}</h3>
+                  <ListItem
+                    key={listing.id}
+                    listing={listing.data}
+                    id={listing.id}
+                  />
                 )
               )}
             </ul>
