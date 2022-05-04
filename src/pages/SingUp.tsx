@@ -15,6 +15,9 @@ console.log(db);
 import ArrowRightAIcon from '../assets/svg/keyboardArrowRightIcon.svg?component';
 import visibilityIcon from '../assets/svg/visibilityIcon.svg';
 
+// * Components
+import OAuth from '../components/OAuth.js';
+
 export default function SingUp() {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -131,7 +134,7 @@ export default function SingUp() {
           </div>
         </form>
 
-        {/* Google OAuth */}
+        <OAuth />
 
         <Link to='/sign-in' className='registerLink'>
           Already have an account? Sign In.

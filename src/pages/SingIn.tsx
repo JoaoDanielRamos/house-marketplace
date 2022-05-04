@@ -9,6 +9,9 @@ import ArrowRightAIcon from '../assets/svg/keyboardArrowRightIcon.svg?component'
 import visibilityIcon from '../assets/svg/visibilityIcon.svg';
 import { toast } from 'react-toastify';
 
+// * Component
+import OAuth from '../components/OAuth';
+
 export default function SingIn() {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -17,7 +20,7 @@ export default function SingIn() {
   });
 
   const { email, password } = formData;
- 
+
   const navigate = useNavigate();
 
   const onChange = (event: any) => {
@@ -93,7 +96,7 @@ export default function SingIn() {
           </div>
         </form>
 
-        {/* Google OAuth */}
+        <OAuth />
 
         <Link to='/sign-up' className='registerLink'>
           Don't have an account? Sing Up!
