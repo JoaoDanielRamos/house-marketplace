@@ -9,7 +9,7 @@ import {
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase.config.js';
 import { toast } from 'react-toastify';
-console.log(db);
+console.log('DATABASE CALL', db);
 
 // * Assets
 import ArrowRightAIcon from '../assets/svg/keyboardArrowRightIcon.svg?component';
