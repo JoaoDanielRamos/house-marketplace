@@ -49,6 +49,7 @@ export default function Category() {
           });
         });
 
+        console.log('listings', listings);
         setListing(listings);
         setLoading(false);
       } catch (error) {

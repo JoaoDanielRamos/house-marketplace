@@ -13,6 +13,7 @@ import Profile from './pages/Profile';
 import SingIn from './pages/SingIn';
 import SingUp from './pages/SingUp';
 import ForgotPassword from './pages/ForgotPassword';
+import CreateListing from './pages/CreateListing';
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
           <Route path='/sign-in' element={<SingIn />} />
           <Route path='/sign-up' element={<SingUp />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
+          <Route path='/create-listing' element={<CreateListing />} />
         </Routes>
         <Navbar />
       </Router>

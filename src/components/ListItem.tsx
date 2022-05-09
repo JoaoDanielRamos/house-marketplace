@@ -9,11 +9,11 @@ export default function ListItem({
 }: {
   listing: {
     type: string;
-    imageUrls: string;
+    imgUrls: string;
     location: string;
     offer: boolean;
     id: number | string;
-    name: string;
+    name: string
     discountedPrice: number;
     regularPrice: string;
     bathrooms: number;
@@ -27,7 +27,7 @@ export default function ListItem({
         to={`/category/${listing.type}/${id}`}
         className='categoryListingLink'
       >
-        <img src={listing.imageUrls[0]} alt='' className='categoryListingImg' />
+        <img src={listing.imgUrls[0]} alt='' className='categoryListingImg' />
         <div className='categoryListingDetails'>
           <p className='categoryListingLocation'>{listing.location}</p>
           <p className='categoryListingName'>{listing.name}</p>

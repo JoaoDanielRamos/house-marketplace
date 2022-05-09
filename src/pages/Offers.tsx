@@ -74,7 +74,7 @@ export default function Offers() {
               {listings.map(
                 (listing: {
                   type: string;
-                  imageUrls: string;
+                  imgUrls: string | [];
                   location: string;
                   offer: boolean;
                   id: number | string;
