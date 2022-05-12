@@ -14,6 +14,7 @@ import SingIn from './pages/SingIn';
 import SingUp from './pages/SingUp';
 import ForgotPassword from './pages/ForgotPassword';
 import CreateListing from './pages/CreateListing';
+import Listing from './pages/Listing';
 
 export default function App() {
   return (
@@ -30,6 +31,7 @@ export default function App() {
           <Route path='/sign-up' element={<SingUp />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
           <Route path='/create-listing' element={<CreateListing />} />
+          <Route path='/listing' element={<Listing />} />
         </Routes>
         <Navbar />
       </Router>
