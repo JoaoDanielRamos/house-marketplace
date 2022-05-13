@@ -3,14 +3,31 @@ import DeleteIcon from '../assets/svg/deleteIcon.svg?component';
 import bedIcon from '../assets/svg/bedIcon.svg';
 import bathtubIcon from '../assets/svg/bathtubIcon.svg';
 
-export default function ListItem({ listing, id }) {
+export default function ListItem({
+  listing,
+  id,
+}: {
+  listing: {
+    type: string;
+    imgUrls: string;
+    location: string;
+    offer: boolean;
+    id: number | string;
+    name: string
+    discountedPrice: number;
+    regularPrice: string;
+    bathrooms: number;
+    bedrooms: number;
+  };
+  id: number | string;
+}) {
   return (
     <li className='categoryListing'>
       <Link
         to={`/category/${listing.type}/${id}`}
         className='categoryListingLink'
       >
-        <img src={listing.imageUrls[0]} alt='' className='categoryListingImg' />
+        <img src={listing.imgUrls[0]} alt='' className='categoryListingImg' />
         <div className='categoryListingDetails'>
           <p className='categoryListingLocation'>{listing.location}</p>
           <p className='categoryListingName'>{listing.name}</p>
@@ -20,10 +37,9 @@ export default function ListItem({ listing, id }) {
               ? listing.discountedPrice
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, '')
-              : listing.RegularPrice.toString().replace(
-                  /\B(?=(\d{3})+(?!\d))/g,
-                  ''
-                )}
+              : listing.regularPrice
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, '')}
             {listing.type === 'rent' && ' / Month'}
           </p>
           <div className='categoryListingInfoDiv'>

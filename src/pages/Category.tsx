@@ -49,6 +49,7 @@ export default function Category() {
           });
         });
 
+        console.log('listings', listings);
         setListing(listings);
         setLoading(false);
       } catch (error) {
@@ -76,7 +77,19 @@ export default function Category() {
           <main>
             <ul className='categoryListings'>
               {listings.map(
-                (listing: { id: string | number; data: { name: string } }) => (
+                (listing: {
+                  type: string;
+                  imageUrls: string;
+                  location: string;
+                  offer: boolean;
+                  id: number | string;
+                  name: string;
+                  discountedPrice: number;
+                  regularPrice: string;
+                  bathrooms: number;
+                  bedrooms: number;
+                  data?: any;
+                }) => (
                   <ListItem
                     key={listing.id}
                     listing={listing.data}

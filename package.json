@@ -14,7 +14,8 @@
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
     "react-toastify": "^9.0.0",
-    "sass": "^1.51.0"
+    "sass": "^1.51.0",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "@honkhonk/vite-plugin-svgr": "^1.1.0",

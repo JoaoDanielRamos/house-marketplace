@@ -13,6 +13,8 @@ import Profile from './pages/Profile';
 import SingIn from './pages/SingIn';
 import SingUp from './pages/SingUp';
 import ForgotPassword from './pages/ForgotPassword';
+import CreateListing from './pages/CreateListing';
+import Listing from './pages/Listing';
 
 export default function App() {
   return (
@@ -22,12 +24,18 @@ export default function App() {
           <Route path='/' element={<Explore />} />
           <Route path='/offers' element={<Offers />} />
           <Route path='/category/:categoryName' element={<Category />} />
+          <Route
+            path='/category/:categoryName/:listingId'
+            element={<Listing />}
+          />
+
           <Route path='/profile' element={<PrivateRoute />}>
             <Route path='/profile' element={<Profile />} />
           </Route>
           <Route path='/sign-in' element={<SingIn />} />
           <Route path='/sign-up' element={<SingUp />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
+          <Route path='/create-listing' element={<CreateListing />} />
         </Routes>
         <Navbar />
       </Router>
