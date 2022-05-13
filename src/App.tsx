@@ -15,6 +15,7 @@ import SingUp from './pages/SingUp';
 import ForgotPassword from './pages/ForgotPassword';
 import CreateListing from './pages/CreateListing';
 import Listing from './pages/Listing';
+import Contact from './pages/Contact';
 
 export default function App() {
   return (
@@ -28,7 +29,7 @@ export default function App() {
             path='/category/:categoryName/:listingId'
             element={<Listing />}
           />
-
+          <Route path='/contact/:landlordId' element={<Contact />} />
           <Route path='/profile' element={<PrivateRoute />}>
             <Route path='/profile' element={<Profile />} />
           </Route>
