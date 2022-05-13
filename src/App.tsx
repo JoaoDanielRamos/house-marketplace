@@ -24,6 +24,11 @@ export default function App() {
           <Route path='/' element={<Explore />} />
           <Route path='/offers' element={<Offers />} />
           <Route path='/category/:categoryName' element={<Category />} />
+          <Route
+            path='/category/:categoryName/:listingId'
+            element={<Listing />}
+          />
+
           <Route path='/profile' element={<PrivateRoute />}>
             <Route path='/profile' element={<Profile />} />
           </Route>
@@ -31,7 +36,6 @@ export default function App() {
           <Route path='/sign-up' element={<SingUp />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
           <Route path='/create-listing' element={<CreateListing />} />
-          <Route path='/listing' element={<Listing />} />
         </Routes>
         <Navbar />
       </Router>
