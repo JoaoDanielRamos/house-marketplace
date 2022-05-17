@@ -6,6 +6,7 @@ import bathtubIcon from '../assets/svg/bathtubIcon.svg';
 export default function ListItem({
   listing,
   id,
+  onDelete,
 }: {
   listing: {
     type: string;
@@ -13,7 +14,7 @@ export default function ListItem({
     location: string;
     offer: boolean;
     id: number | string;
-    name: string
+    name: string;
     discountedPrice: number;
     regularPrice: string;
     bathrooms: number;
@@ -34,10 +35,10 @@ export default function ListItem({
           <p className='categoryListingPrice'>
             $
             {listing.offer
-              ? listing.discountedPrice
+              ? Number(listing.discountedPrice)
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, '')
-              : listing.regularPrice
+              : Number(listing.regularPrice)
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, '')}
             {listing.type === 'rent' && ' / Month'}
@@ -59,17 +60,13 @@ export default function ListItem({
         </div>
       </Link>
 
-      {/* {onDelete && (
+      {onDelete && (
         <DeleteIcon
           className='removeIcon'
-          fill='rgb(231, 76, 50'
-          width=''
-          height=''
-          onClick={() => {
-            onDelete(listing.id, listing.name);
-          }}
+          fill='rgb(231, 76,60)'
+          onClick={() => onDelete(listing.id, listing.name)}
         />
-      )} */}
+      )}
     </li>
   );
 }
